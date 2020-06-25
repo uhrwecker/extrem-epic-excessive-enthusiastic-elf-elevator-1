@@ -1,19 +1,40 @@
 """Playerclass"""
+from classes.race import *
+from classes.alignment import *
 
-
-class player():
+class Player():
  
     def __init__(self, race, alignment):
         """Sorts the arguments to variables
         Arg: 
             race: race chosen by the player
             alignment: alignment chosen by the player"""
-        self.race = race
-        self.alignment = alignment
+        self.race = self._setup_race(race)
+        self.alignment = self._setup_alignment(alignment)
         
-        self.HP, self.STAM = self.setup_stats(race, alignment)
+        self.HP, self.STAM = self.setup_stats()
+        self.MAX_HP = self.HP
 
-    def setup_stats(self, race, alignment):
+    def _setup_alignment(self, align_id):
+        if align_id == 'fighter':
+            return Fighter()
+        if align_id == 'mage':
+            return Mage()
+
+        else:
+            raise ValueError('The alignment_id {} was not understood.'.format(align_id))
+
+
+    def _setup_race(self, race_id):
+        if race_id == 'orc':
+            return Orc()
+        if race_id == 'human':
+            return Human()
+
+        else:
+            raise ValueError('The race_id {} was not understood.'.format(race_id))
+
+    def setup_stats(self):
         """sets personal player stats at the start
         Arg:
             race: sets your ground stats
@@ -21,19 +42,11 @@ class player():
         Out:
             HP: hitpoints
             STAM: stamina"""
-        if race == 'human':
-            HP = 1
-            STAM = 2
-        
-        if race == 'orc':
-            HP = 2
-            STAM = 1
-        
-        if alignment == 'fighter':
-            HP += 1
-        
-        if alignment == 'mage':
-            STAM += 1
+
+        BASE_HP = self.race.get_HP()
+        BASE_STAM = self.race.get_STAM()
+
+        HP, STAM = self.alignment.adjust_stats(BASE_HP, BASE_STAM)
         
         return HP, STAM
     
