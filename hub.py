@@ -1,7 +1,7 @@
-from Classes.Playerc import playerclass as pc
+from classes.playerc import playerclass as pc
 
-player_1 = pc.player('human', 'mage')
-player_2 = pc.player('orc', 'fighter')
+player_1 = pc.Player('human', 'mage')
+player_2 = pc.Player('orc', 'fighter')
 
 player_1.change_stat("HP", 1)
 
