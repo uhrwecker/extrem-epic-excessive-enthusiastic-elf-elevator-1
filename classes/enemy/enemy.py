@@ -10,7 +10,8 @@ class Enemy():
     base class for future enemies which will be clubbed to death for entertainment.
     Maybe they should scream a bit?
     '''
-    def __init__(self, MAX_HP, MAX_STAM):
+    def __init__(self, name, MAX_HP, MAX_STAM):
+        self.name = name
         self.MAX_HP = self._setup_HP(MAX_HP)
         self.MAX_STAM = self._setup_STAM(MAX_STAM)
 
@@ -50,8 +51,11 @@ class Enemy():
         self.STAM = val
 
 
-    def __repr__(self):
-        return "Type: {}, HP: {}, STAM: {}".format(self.id, HP, STAM)
+    def stat_display(self):
+        return "Name: {}, Type: {}, HP: {}, STAM: {}".format(self.name,
+                                                             self.id,
+                                                             self.HP,
+                                                             self.STAM)
 
 
 
