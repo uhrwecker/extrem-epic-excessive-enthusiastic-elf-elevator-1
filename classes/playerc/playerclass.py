@@ -15,6 +15,7 @@ class Player():
         
         self.HP, self.STAM = self.setup_stats()
         self.MAX_HP = self.HP
+        self.MAX_STAM = self.STAM
 
     def _setup_alignment(self, align_id):
         if align_id == 'fighter':
@@ -50,6 +51,12 @@ class Player():
         HP, STAM = self.alignment.adjust_stats(BASE_HP, BASE_STAM)
         
         return HP, STAM
+
+    def change_max_stat(self, stat_name, val):
+        '''
+        Change the maximum stat/HP by e.g. equipping an item
+        '''
+        raise NotImplementedError()
     
     def change_stat(self, stat_name, val):
         """tool to change the temporarily stats of a player
