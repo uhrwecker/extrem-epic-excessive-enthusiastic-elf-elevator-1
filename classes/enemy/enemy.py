@@ -35,6 +35,15 @@ class Enemy():
         to have one more MAX_STAM
         '''
         raise NotImplementedError('I will find you. No!')
+
+
+    def get_battle_action(self):
+        '''
+        Get the battle action.
+        0: attack
+        1: defend
+        '''
+        raise NotImplementedError()
     
 
     def get_HP(self):
@@ -44,15 +53,23 @@ class Enemy():
         return self.STAM
     
 
-    def set_HP(self, val):
-        self.HP = val
-
-    def set_STAM(self, val):
-        self.STAM = val
+    def change_stat(self, stat_name, val):
+        """tool to change the temporarily stats of a player
+        Arg:
+            stat_name: name of the stat to be changed
+            val: value of the change
+        Out:
+            new value of the stat thats been changed"""
+        if stat_name == "HP":
+            self.HP += val
+            return self.HP
+        if stat_name == "STAM":
+            self.STAM += val
+            return self.STAM
 
 
     def stat_display(self):
-        return "Name: {}, Type: {}, HP: {}, STAM: {}".format(self.name,
+        return "Name: {}, Type: {}, \n\t HP: {}, STAM: {}".format(self.name,
                                                              self.id,
                                                              self.HP,
                                                              self.STAM)

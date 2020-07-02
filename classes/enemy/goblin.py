@@ -1,4 +1,5 @@
 from classes.enemy import enemy
+import numpy.random as rd
 
 class BasicGoblin(enemy.Enemy):
     '''
@@ -16,6 +17,12 @@ class BasicGoblin(enemy.Enemy):
     def _setup_STAM(self, STAM):
         return STAM
 
+    def get_battle_action(self):
+        '''
+        Always attacking, that loveable bastard.
+        '''
+        return 0
+
 
 class TankGoblin(enemy.Enemy):
     '''
@@ -25,6 +32,17 @@ class TankGoblin(enemy.Enemy):
         self.id = 'Tank Goblin'
 
         super().__init__(name, MAX_HP, MAX_STAM)
+
+    def get_battle_action(self):
+        '''
+        80% defend
+        20% attack
+        '''
+        rand = rd.randint(0, 100)
+        if rand <= 80:
+            return 1
+        else:
+            return 0
 
     def _setup_HP(self, HP):
         return HP

@@ -4,11 +4,12 @@ from classes.alignment import *
 
 class Player():
  
-    def __init__(self, race, alignment):
+    def __init__(self, name, race, alignment):
         """Sorts the arguments to variables
         Arg: 
             race: race chosen by the player
             alignment: alignment chosen by the player"""
+        self.name = name
         self.race = self._setup_race(race)
         self.alignment = self._setup_alignment(alignment)
         
@@ -34,6 +35,12 @@ class Player():
 
         else:
             raise ValueError('The race_id {} was not understood.'.format(race_id))
+
+    def get_HP(self):
+        return self.HP
+
+    def get_STAM(self):
+        return self.STAM
 
     def setup_stats(self):
         """sets personal player stats at the start
@@ -74,5 +81,5 @@ class Player():
     def stat_display(self):
         """Displays the stats of a player
         returns a string that can be printed and holds the current stats of the player"""
-        return """Race: {}, Alignment: {}
-    HP: {}, STAM: {}""".format(self.race, self.alignment, self.HP, self.STAM)
+        return """Name: {}, Race: {}, Alignment: {}
+    HP: {}, STAM: {}""".format(self.name, self.race, self.alignment, self.HP, self.STAM)

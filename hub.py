@@ -1,15 +1,20 @@
 from classes.playerc import playerclass as pc
 from classes.enemy import goblin as gb
 
-player_1 = pc.Player('human', 'mage')
-player_2 = pc.Player('orc', 'fighter')
+from classes.battle import bm
 
-goblinsky = gb.BasicGoblin('Gertrud')
+player_1 = pc.Player('Piwo', 'human', 'mage')
+player_2 = pc.Player('LMNO', 'orc', 'fighter')
 
-player_1.change_stat("HP", 1)
+players = [player_1, player_2]
 
-print(player_1.HP)
+goblinsky = gb.BasicGoblin('Hässlicher stinkender Doofkopf')
 
-print("Player 1:","\n", player_1.stat_display())
-print("Player 2:","\n", player_2.stat_display())
-print('Enemy 1: ', '\n', goblinsky.stat_display())
+enemies = [goblinsky]
+
+print("Player 1:","\n", players[0].stat_display())
+print("Player 2:","\n", players[1].stat_display())
+print('Enemy 1: ', '\n', enemies[0].stat_display())
+
+batman = bm.BattleManager('')
+players, enemies = batman.start_battle(players, [goblinsky])
