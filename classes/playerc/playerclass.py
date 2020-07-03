@@ -75,5 +75,5 @@ class Player():
     def stat_display(self):
         """Displays the stats of a player
         returns a string that can be printed and holds the current stats of the player"""
-        return """Name: {}, Race: {}, Alignment: {}
+        return """{}:\n Race: {}, Alignment: {}
     HP: {}, STAM: {}""".format(self.name, self.race, self.alignment, self.HP, self.STAM)
