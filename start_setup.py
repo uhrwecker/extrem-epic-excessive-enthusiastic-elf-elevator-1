@@ -1,7 +1,6 @@
 """Handels the player setup"""
 
 from classes.playerc import playerclass as pc
-from input_testing import input_tests as inp
 
 def start_setup():
     
@@ -33,21 +32,11 @@ def setup_player():
         race = input("""Hello {}, what race do you want to be?
 [human, orc] """.format(name))
         race = race.casefold()
-        test = inp.test_string(race, 'race')
-        while test == False:
-            race = input("""Ups, your input wasn't correct, please try again
-[human, orc] """)
-            race = race.casefold()
-            test = inp.test_string(race, 'race')
-            
-            
-        
-        
         
         alignment = input("""And what will be your alignment?
 [fighter, mage] """)
         alignment = alignment.casefold()
-    
+        
         p = pc.Player(name, race, alignment)
         players.append(p)
         
