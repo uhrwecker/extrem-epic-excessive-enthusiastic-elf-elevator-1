@@ -6,5 +6,5 @@ save_non_project_files = False
 
 [main]
 version = 0.2.0
-recent_files = ['start_setup.py', 'hub.py']
+recent_files = ['start_setup.py', 'hub.py', 'testing\\input_testing.py']
 
