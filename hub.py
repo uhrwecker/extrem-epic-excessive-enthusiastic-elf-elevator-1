@@ -1,11 +1,23 @@
-from Classes.Playerc import playerclass as pc
+from classes.playerc import playerclass as pc
+import start_setup as setup
+from classes.enemy import goblin as gb
+#import game_loop as gl
 
-player_1 = pc.player('human', 'mage')
-player_2 = pc.player('orc', 'fighter')
 
-player_1.change_stat("HP", 1)
+#setup.setup_player()
+#setup.setup_world()
 
-print(player_1.HP)
 
-print("Player 1:","\n", player_1.stat_display())
-print("Player 2:","\n", player_2.stat_display())
+#players = setup.start_setup()
+#piwo = pc.Player('Piwo', 'orc', 'fighter')
+#jan = pc.Player('Jan', 'human', 'mage')
+#players = [piwo, jan]
+
+#gl.Game_loop()
+
+#goblinsky = gb.BasicGoblin('Gertrud')
+
+#print(players[0].stat_display())
+#print(players[1].stat_display())
+
+#print('Enemy 1: ', '\n', goblinsky.stat_display())

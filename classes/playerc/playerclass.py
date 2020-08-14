@@ -4,16 +4,18 @@ from classes.alignment import *
 
 class Player():
  
-    def __init__(self, race, alignment):
+    def __init__(self, name, race, alignment):
         """Sorts the arguments to variables
         Arg: 
             race: race chosen by the player
             alignment: alignment chosen by the player"""
+        self.name = name
         self.race = self._setup_race(race)
         self.alignment = self._setup_alignment(alignment)
         
         self.HP, self.STAM = self.setup_stats()
         self.MAX_HP = self.HP
+        self.MAX_STAM = self.STAM
 
     def _setup_alignment(self, align_id):
         if align_id == 'fighter':
@@ -49,7 +51,14 @@ class Player():
         HP, STAM = self.alignment.adjust_stats(BASE_HP, BASE_STAM)
         
         return HP, STAM
+
+    def change_max_stat(self, stat_name, val):
+        '''
+        Change the maximum stat/HP by e.g. equipping an item
+        '''
+        raise NotImplementedError()
     
+
     def change_stat(self, stat_name, val):
         """tool to change the temporarily stats of a player
         Arg:
@@ -64,8 +73,8 @@ class Player():
             self.STAM += val
             return self.STAM
         
-    def stat_display(self):
+
         """Displays the stats of a player
         returns a string that can be printed and holds the current stats of the player"""
-        return """Race: {}, Alignment: {}
-    HP: {}, STAM: {}""".format(self.race, self.alignment, self.HP, self.STAM)
+        return """{}:\n Race: {}, Alignment: {}
+    HP: {}, STAM: {}""".format(self.name, self.race, self.alignment, self.HP, self.STAM)
