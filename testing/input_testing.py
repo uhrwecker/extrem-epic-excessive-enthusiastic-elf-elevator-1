@@ -14,21 +14,33 @@ def test_string(string, expection):
         if lenght <= 15:
             return True
         if lenght > 15:
-            print("Your input is to long.")
+            print("Your input is to long. Max letters are 15")
             return False
         
-    if expection == 'race':
-        races = ['human', 'orc']
-        if string in races:
+    if string in expection:
             return True
-        else:
-            print("Your input wasnt correct.")
-            return False
+    else:
+        print("Your input wasnt correct.")
+        return False
         
-    if expection == 'alignment':
-        alignments = ['fighter', 'mage']
-        if string in alignments:
+def test_int(string, expection):
+    
+    if expection == "None":
+        try:
+            val = int(string)
             return True
-        else:
-            print("Your input wasnt correct.")
+        except ValueError:
+            print("You have to insert a number.")
             return False
+    
+    try:
+        val = int(string)
+        if val in expection:
+            return True
+        if val in expection:
+            print("Your input wasnt valid.")
+            return False
+    except ValueError:
+        print("You have to insert a number.")
+        return False
+            

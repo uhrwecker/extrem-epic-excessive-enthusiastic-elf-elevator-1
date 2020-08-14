@@ -58,6 +58,7 @@ class Player():
         '''
         raise NotImplementedError()
     
+
     def change_stat(self, stat_name, val):
         """tool to change the temporarily stats of a player
         Arg:
@@ -72,7 +73,7 @@ class Player():
             self.STAM += val
             return self.STAM
         
-    def stat_display(self):
+
         """Displays the stats of a player
         returns a string that can be printed and holds the current stats of the player"""
         return """{}:\n Race: {}, Alignment: {}
